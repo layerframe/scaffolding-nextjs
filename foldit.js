@@ -6,6 +6,7 @@
  * @see https://www.npmjs.com/package/commander
  */
 const commander = require('commander');
+const path = require('path');
 const colors = require('colors');
 const { exec } = require('child_process');
 
