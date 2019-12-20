@@ -7,10 +7,10 @@ const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldComponent = require('./scaffolding/scaffold-component');
 
-const PACKAGE_PATH = pkgpath.parent() || pkgpath.self()
+const constants = require('./constants');
 
-const pkg = require(path.resolve(PACKAGE_PATH, 'package.json'));
-const dirs = pkg.directories;
+const PACKAGE_PATH = constants.getPackagePath()
+const SOURCE_DIR = constants.dirs()
 
 const createClassName = name => {
   // Force uppercase to build the className
@@ -30,6 +30,6 @@ module.exports = () => {
     name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/page-component'),
     path: destPath,
-    dest: path.resolve(PACKAGE_PATH, dirs.src, 'pages', createClassName(argv.name).toLowerCase())
+    dest: path.resolve(PACKAGE_PATH, SOURCE_DIR, 'pages', createClassName(argv.name).toLowerCase())
   });
 }

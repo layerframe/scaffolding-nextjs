@@ -7,16 +7,16 @@ const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldComponent = require('./scaffolding/scaffold-component');
 
-const PACKAGE_PATH = pkgpath.parent() || pkgpath.self()
+const constants = require('./constants');
 
-const pkg = require(path.resolve(PACKAGE_PATH, 'package.json'));
-const dirs = pkg.directories;
+const PACKAGE_PATH = constants.getPackagePath()
+const SOURCE_DIR = constants.dirs()
 
 module.exports = () => {
   const argv = minimist(process.argv.slice(2));
   return scaffoldComponent({
     name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/stateless-component'),
-    dest: path.resolve(PACKAGE_PATH, dirs.src, 'components', argv.name)
+    dest: path.resolve(PACKAGE_PATH, SOURCE_DIR, 'components', argv.name)
   });
 }

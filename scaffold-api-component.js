@@ -1,21 +1,19 @@
 /**
  * @file scaffold-api-component.js
- * Handles generating a standard API component. 
+ * Handles generating a standard API component.
  */
 const path = require('path');
-const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldComponent = require('./scaffolding/scaffold-component');
 
-const PACKAGE_PATH = pkgpath.parent() || pkgpath.self()
+const constants = require('./constants');
 
-const pkg = require(path.resolve(PACKAGE_PATH, 'package.json'));
-const dirs = pkg.directories;
+const PACKAGE_PATH = constants.getPackagePath()
+const SOURCE_DIR = constants.dirs()
 
 const createClassName = name => {
   // Force uppercase to build the className
   const cleanName = `${name[0].toUpperCase()}${name.slice(1,name.length)}`
-  console.log(cleanName)
   // transforms PascalCase into slug-case for the CSS class name
   return cleanName
     .replace(/[A-Z]/g, word => '-' + word.toLowerCase())
@@ -30,6 +28,12 @@ module.exports = () => {
     name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/api-component'),
     path: destPath,
-    dest: path.resolve(PACKAGE_PATH, dirs.src, 'pages', 'api', createClassName(argv.name).toLowerCase())
+    dest: path.resolve(
+      PACKAGE_PATH,
+      SOURCE_DIR,
+      'pages',
+      'api',
+      createClassName(argv.name).toLowerCase()
+    )
   });
 }
