@@ -1,12 +1,15 @@
 /**
  * @file bin/scaffold-app.js
+ * Handles scaffolding an _app file.
  */
 const path = require('path');
 const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldApp = require('./scaffolding/scaffold-app');
 
-const pkg = require(path.resolve(pkgpath.self(), 'package.json'));
+const PACKAGE_PATH = pkgpath.parent() || pkgpath.self()
+
+const pkg = require(path.resolve(PACKAGE_PATH, 'package.json'));
 const dirs = pkg.directories;
 
 module.exports = () => {
@@ -14,6 +17,6 @@ module.exports = () => {
   return scaffoldApp({
     // name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/app'),
-    dest: path.resolve(pkgpath.self(), dirs.src, 'pages')
+    dest: path.resolve(PACKAGE_PATH, dirs.src, 'pages')
   });
 }

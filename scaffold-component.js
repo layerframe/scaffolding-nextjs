@@ -1,12 +1,15 @@
 /**
  * @file bin/scaffold-component.js
+ * Handles scaffolding a basic stateless component.
  */
 const path = require('path');
 const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldComponent = require('./scaffolding/scaffold-component');
 
-const pkg = require(path.resolve(pkgpath.self(), 'package.json'));
+const PACKAGE_PATH = pkgpath.parent() || pkgpath.self()
+
+const pkg = require(path.resolve(PACKAGE_PATH, 'package.json'));
 const dirs = pkg.directories;
 
 module.exports = () => {
@@ -14,6 +17,6 @@ module.exports = () => {
   return scaffoldComponent({
     name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/stateless-component'),
-    dest: path.resolve(pkgpath.self(), dirs.src, 'components', argv.name)
+    dest: path.resolve(PACKAGE_PATH, dirs.src, 'components', argv.name)
   });
 }
