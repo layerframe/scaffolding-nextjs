@@ -1,0 +1,24 @@
+{
+  "name": "scaffolding-nextjs",
+  "version": "1.0.0",
+  "description": "Templates that aid in the development of NextJS applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/layerframe/scaffolding-nextjs.git"
+  },
+  "keywords": [
+    "scaffolds",
+    "templates",
+    "nextjs"
+  ],
+  "author": "Rob Sawyer (rob@layerframe.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/layerframe/scaffolding-nextjs/issues"
+  },
+  "homepage": "https://github.com/layerframe/scaffolding-nextjs#readme"
+}
