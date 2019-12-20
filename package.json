@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/layerframe/scaffolding-nextjs/issues"
   },
-  "homepage": "https://github.com/layerframe/scaffolding-nextjs#readme"
+  "homepage": "https://github.com/layerframe/scaffolding-nextjs#readme",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "packpath": "^0.1.0",
+    "path": "^0.12.7"
+  }
 }
