@@ -11,6 +11,8 @@ const constants = require('./constants');
 const PACKAGE_PATH = constants.getPackagePath()
 const SOURCE_DIR = constants.dirs().src
 
+console.log('PACKAGE_PATH', PACKAGE_PATH)
+
 const createClassName = name => {
   // Force uppercase to build the className
   const cleanName = `${name[0].toUpperCase()}${name.slice(1,name.length)}`
