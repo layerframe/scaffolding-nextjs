@@ -12,6 +12,10 @@ module.exports = ({
   dest
 }) => {
 
+  console.log('name', name)
+  console.log('src', src)
+  console.log('dest', dest)
+
   // if(!/^[A-Z][A-Za-z]+$/.test(name)) {
   //   console.error(chalk.bgRed('The name should be in PascalCase.'));
   //   process.exit(1);

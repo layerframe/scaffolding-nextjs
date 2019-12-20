@@ -9,7 +9,7 @@ const scaffoldComponent = require('./scaffolding/scaffold-component');
 const constants = require('./constants');
 
 const PACKAGE_PATH = constants.getPackagePath()
-const SOURCE_DIR = constants.dirs()
+const SOURCE_DIR = constants.dirs().src
 
 const createClassName = name => {
   // Force uppercase to build the className
@@ -20,10 +20,9 @@ const createClassName = name => {
     .substring(1); // trim off leading - from the first capital
 }
 
-module.exports = () => {
+module.exports = function () {
   const argv = minimist(process.argv.slice(2));
   const destPath = argv.path || argv.name;
-
   return scaffoldComponent({
     name: argv.name,
     src: path.resolve(__dirname, 'scaffolding/api-component'),
@@ -36,4 +35,4 @@ module.exports = () => {
       createClassName(argv.name).toLowerCase()
     )
   });
-}
+}()

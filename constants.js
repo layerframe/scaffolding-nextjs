@@ -21,6 +21,18 @@ module.exports = {
       }
     },
   /**
+   * getPackageVersion
+   * Handles getting the package version
+   */
+    getPackageVersion: function () {
+      try {
+        const pkg = require(path.resolve(pkgpath.self(), 'package.json'));
+        return pkg.version
+      } catch (err) {
+        console.error('There was an error finding the package.json version.', err)
+      }
+    },
+  /**
    * dirs
    * Fetches the directories content from package.json
    * @param {string} dirPathName is the name of the directories key in package.json

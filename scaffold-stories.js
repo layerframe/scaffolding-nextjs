@@ -3,16 +3,15 @@
  * Handles scaffolding a Storybook story.
  */
 const path = require('path');
-const pkgpath = require('packpath');
 const minimist = require('minimist');
 const scaffoldComponent = require('./scaffolding/scaffold-story-component');
 
 const constants = require('./constants');
 
 const PACKAGE_PATH = constants.getPackagePath()
-const SOURCE_DIR = constants.dirs()
+const SOURCE_DIR = constants.dirs().src
 
-module.exports = () => {
+module.exports = function () {
   const argv = minimist(process.argv.slice(2));
   const destPath = argv.path || argv.name;
   return scaffoldComponent({
@@ -21,4 +20,4 @@ module.exports = () => {
     src: path.resolve(__dirname, 'scaffolding/component-stories'),
     dest: path.resolve(PACKAGE_PATH, SOURCE_DIR, 'components', destPath)
   });
-}
+}()

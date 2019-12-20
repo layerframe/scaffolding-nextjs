@@ -1,21 +1,31 @@
+#!/usr/bin/env node
+
 /**
  * @file index.js
  * Tool configuration.
  * @see https://www.npmjs.com/package/commander
  */
 const commander = require('commander');
-// const colors = require('colors');
+const colors = require('colors');
+const { exec } = require('child_process');
 
+// Local
 const constants = require('./constants');
-const run = require('./run').default;
+
+// Scaffolds
+// const scafApi = require('./scaffold-api-component');
+// const scafApp = require('./scaffold-app');
+// const scafComponent = require('./scaffold-component');
+// const scafContext = require('./scaffold-context');
+// const scafPage = require('./scaffold-page-component');
+// const scafStory= require('./scaffold-stories');
 
 // Create the program
 const program = new commander.Command();
 
 const scriptPrefix = 'scaffold'
 
-console.log('constants.getPackagePath(true)', constants.getPackagePath(true))
-program.version(constants.getPackagePath(true).version);
+program.version(constants.getPackageVersion());
 
 program
   .name('foldit')
@@ -28,34 +38,48 @@ program
 
 program.parse(process.argv);
 
-if (program.debug) console.log(program.opts());
-console.log('NextJS Scaffold Details:');
+console.log(colors.blue('\n-------------------------------'));
+console.log(colors.blue('--- NextJS Scaffold Details ---'));
+console.log(colors.blue('-------------------------------\n'));
 
-if (program.api) console.log('Building an API scaffold.')
+if (program.debug) console.log(program.opts());
 
 /**
  * runScript
  * @param {string} name name of the script (minus the separator and the name)
- * @param {string} sep space separator in script name. Defaults to '-'
+ * @param {string} options options to pass to the script
+ *  * @param {string} sep space separator in script name. Defaults to '-'
  */
-const runScript = function (name, sep = '-') {
-  return run(`./${scriptPrefix}${sep}${path}`, function(err) {
-    if (err) throw err;
-    return colors.green('Finished running', `${scriptPrefix}${sep}${name}`);
+const runScript = function (name, options, ignoreName = false, sep = '-') {
+  let finalExec = `./node_modules/.bin/babel-node ./${scriptPrefix}${sep}${name} --name ${options}`
+  if (ignoreName) {
+    finalExec = `./node_modules/.bin/babel-node ./${scriptPrefix}${sep}${name}`
+  }
+  console.log('Executing command...', finalExec)
+  return exec(finalExec, (error, stdout, stderr) => {
+      if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+      }
+      console.log(`stdout: ${stdout}`);
   });
 }
 
 // Build an API component
-if (program.api) runScript('api-component');
+if (program.api) runScript('api-component', program.api);
 
 // Build a stateless component
-if (program.component) runScript('component');
+// if (program.component) runScript('component', program.component);
 
-// Build a context component
-if (program.component) runScript('context');
+// // Build a context component
+// if (program.context) runScript('context', program.context);
 
-// Build a page component
-if (program.component) runScript('page-component');
+// // Build a page component
+// if (program.page) runScript('page-component', program.page);
 
-// Build a story component
-if (program.component) runScript('stories');
+// // Build a story component
+// if (program.story) runScript('stories', program.story);
