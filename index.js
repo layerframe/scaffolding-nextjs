@@ -33,12 +33,32 @@ console.log('NextJS Scaffold Details:');
 
 if (program.api) console.log('Building an API scaffold.')
 
+// Build an API component
 if (program.api) run('./' + scriptPrefix + '-api-component', function(err) {
   if (err) throw err;
-  console.log('finished running', scriptPrefix + '-api-component');
+  return colors.green('Finished running', scriptPrefix + '-api-component');
 });
 
-if (program.component) run('./' + scriptPrefix + 'component', function(err) {
+// Build a stateless component
+if (program.component) run('./' + scriptPrefix + '-component', function(err) {
   if (err) throw err;
-  console.log('finished running', scriptPrefix + '-component');
+  return colors.green('Finished running', scriptPrefix + '-component');
+});
+
+// Build a context component
+if (program.component) run('./' + scriptPrefix + '-context', function(err) {
+  if (err) throw err;
+  return colors.green('Finished running', scriptPrefix + '-context');
+});
+
+// Build a page component
+if (program.component) run('./' + scriptPrefix + '-page-component', function(err) {
+  if (err) throw err;
+  return colors.green('Finished running', scriptPrefix + '-page');
+});
+
+// Build a story component
+if (program.component) run('./' + scriptPrefix + '-stories', function(err) {
+  if (err) throw err;
+  return colors.green('Finished running', scriptPrefix + '-story');
 });
