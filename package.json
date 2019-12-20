@@ -1,5 +1,5 @@
 {
-  "name": "scaffolding-nextjs",
+  "name": "@layerframers/scaffolding-nextjs",
   "version": "1.0.0",
   "description": "Templates that aid in the development of NextJS applications.",
   "main": "index.js",
@@ -21,6 +21,9 @@
   ],
   "author": "Rob Sawyer (rob@layerframe.com)",
   "license": "MIT",
+  "bin": {
+    "foldit": "./foldit.js"
+  },
   "bugs": {
     "url": "https://github.com/layerframe/scaffolding-nextjs/issues"
   },
