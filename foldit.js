@@ -23,7 +23,8 @@ program.version(constants.getPackageVersion());
 program
   .name('foldit')
   .option('-d, --debug', 'output extra debugging')
-  .option('-a, --api <name>', 'an API page component')
+  .option('-api, --api <name>', 'an API page component')
+  .option('-app, --app <name>', 'an _app page component')
   .option('-c, --component <name>', 'a stateless component')
   .option('-x, --context <name>', 'a context component')
   .option('-p, --page <name>', 'a page component')
@@ -65,14 +66,17 @@ const runScript = function (name, options, ignoreName = false, sep = '-') {
 // Build an API component
 if (program.api) runScript('api-component', program.api);
 
+// Build an _app component
+if (program.api) runScript('app', program.app);
+
 // Build a stateless component
-// if (program.component) runScript('component', program.component);
+if (program.component) runScript('component', program.component);
 
-// // Build a context component
-// if (program.context) runScript('context', program.context);
+// Build a context component
+if (program.context) runScript('context', program.context);
 
-// // Build a page component
-// if (program.page) runScript('page-component', program.page);
+// Build a page component
+if (program.page) runScript('page-component', program.page);
 
-// // Build a story component
-// if (program.story) runScript('stories', program.story);
+// Build a story component
+if (program.story) runScript('stories', program.story);
