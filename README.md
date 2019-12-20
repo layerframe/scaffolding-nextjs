@@ -5,34 +5,49 @@
 # Getting started
 
 1. `yarn add @layerframers/scaffolding-nextjs`
-1. Update your `package.json` with the following. Point this to where files should be created.
+1. Update your `package.json` with the following. Point src to where files should be created. The script will reference your base directory automatically, though.
 ```json
 ...
 "directories": {
   "src": "."
 },
 ...
-
+"scripts": {
+  ...
+  "app": "foldit -a ",
+  "component": "foldit -c ",
+  "context": "foldit -x ",
+  "api": "foldit -a ",
+  "page": "foldit -p ",
+  ...
+}
 ```
-1. `foldit -c MyComponent`
+1. Use it like `yarn component MyNewComponent` or like `./node_modules/.bin/foldit -c MyComponent`
 
 ## What are scaffolds?
 
 Scaffolding makes it easy to build consistent components that contain various dependencies i.e., [Stories](https://storybook.js.org/) and [tests](https://jestjs.io/) for the application.
 
-### Adding a basic stateless component
+### Scaffolds
+You can find all of the templates for the scaffolds inside of `scaffolding`. For example, `scaffold-component/*` files are connected via the file `scaffold-component.js`.
 
-To build a component, run the following command.
+#### _app
+- `./node_modules/.bin/foldit -app`
 
-1. `fold component Test`
+#### API components
+- `./node_modules/.bin/foldit -api `
 
-You'll see that the component is built based on the scaffold items found inside of `scaffolding/stateless-component`. Note: `stateless-component` is connected via the file `scaffold-component.js`.
+#### Component
+- `./node_modules/.bin/foldit -c Test`
 
-## Make a page
+#### Context
+- `./node_modules/.bin/foldit -x Test`
 
-To build a page component, run the following command.
+#### Pages
+- `./node_modules/.bin/foldit -p tests`
 
-1. `fold page tests`
+#### Storybook Stories
+- `./node_modules/.bin/foldit -s MyStory`
 
 ## Extending
 
