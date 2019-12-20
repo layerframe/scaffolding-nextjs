@@ -4,7 +4,11 @@
   "description": "Templates that aid in the development of NextJS applications.",
   "main": "index.js",
   "scripts": {
+    "build": "node_modules/.bin/babel ./src/index.js -o ./lib/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "directories": {
+    "src": "."
   },
   "repository": {
     "type": "git",
@@ -22,8 +26,17 @@
   },
   "homepage": "https://github.com/layerframe/scaffolding-nextjs#readme",
   "dependencies": {
+    "@babel/cli": "^7.7.5",
+    "@babel/core": "^7.7.5",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
+    "child_process": "^1.0.2",
+    "colors": "^1.4.0",
+    "commander": "^4.0.1",
+    "dopl": "^0.2.0",
     "minimist": "^1.2.0",
     "packpath": "^0.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "pkgpath": "^0.1.1"
   }
 }
