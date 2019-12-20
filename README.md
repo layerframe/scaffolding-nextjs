@@ -14,10 +14,10 @@
 ...
 "scripts": {
   ...
-  "app": "foldit -a ",
+  "app": "foldit -app ",
   "component": "foldit -c ",
   "context": "foldit -x ",
-  "api": "foldit -a ",
+  "api": "foldit -api ",
   "page": "foldit -p ",
   ...
 }
