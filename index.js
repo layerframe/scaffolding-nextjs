@@ -33,32 +33,29 @@ console.log('NextJS Scaffold Details:');
 
 if (program.api) console.log('Building an API scaffold.')
 
+/**
+ * runScript
+ * @param {string} name name of the script (minus the separator and the name)
+ * @param {string} sep space separator in script name. Defaults to '-'
+ */
+const runScript = function (name, sep = '-') {
+  return run(`./${scriptPrefix}${sep}${path}`, function(err) {
+    if (err) throw err;
+    return colors.green('Finished running', `${scriptPrefix}${sep}${name}`);
+  });
+}
+
 // Build an API component
-if (program.api) run('./' + scriptPrefix + '-api-component', function(err) {
-  if (err) throw err;
-  return colors.green('Finished running', scriptPrefix + '-api-component');
-});
+if (program.api) runScript('api-component');
 
 // Build a stateless component
-if (program.component) run('./' + scriptPrefix + '-component', function(err) {
-  if (err) throw err;
-  return colors.green('Finished running', scriptPrefix + '-component');
-});
+if (program.component) runScript('component');
 
 // Build a context component
-if (program.component) run('./' + scriptPrefix + '-context', function(err) {
-  if (err) throw err;
-  return colors.green('Finished running', scriptPrefix + '-context');
-});
+if (program.component) runScript('context');
 
 // Build a page component
-if (program.component) run('./' + scriptPrefix + '-page-component', function(err) {
-  if (err) throw err;
-  return colors.green('Finished running', scriptPrefix + '-page');
-});
+if (program.component) runScript('page-component');
 
 // Build a story component
-if (program.component) run('./' + scriptPrefix + '-stories', function(err) {
-  if (err) throw err;
-  return colors.green('Finished running', scriptPrefix + '-story');
-});
+if (program.component) runScript('stories');
