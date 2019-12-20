@@ -12,14 +12,6 @@ const { exec } = require('child_process');
 // Local
 const constants = require('./constants');
 
-// Scaffolds
-// const scafApi = require('./scaffold-api-component');
-// const scafApp = require('./scaffold-app');
-// const scafComponent = require('./scaffold-component');
-// const scafContext = require('./scaffold-context');
-// const scafPage = require('./scaffold-page-component');
-// const scafStory= require('./scaffold-stories');
-
 // Create the program
 const program = new commander.Command();
 
@@ -51,9 +43,9 @@ if (program.debug) console.log(program.opts());
  *  * @param {string} sep space separator in script name. Defaults to '-'
  */
 const runScript = function (name, options, ignoreName = false, sep = '-') {
-  let finalExec = `./node_modules/.bin/babel-node ./${scriptPrefix}${sep}${name} --name ${options}`
+  let finalExec = `node ./${scriptPrefix}${sep}${name} --name ${options}`
   if (ignoreName) {
-    finalExec = `./node_modules/.bin/babel-node ./${scriptPrefix}${sep}${name}`
+    finalExec = `node ./${scriptPrefix}${sep}${name}`
   }
   console.log('Executing command...', finalExec)
   return exec(finalExec, (error, stdout, stderr) => {
