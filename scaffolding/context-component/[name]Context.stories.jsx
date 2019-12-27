@@ -9,16 +9,10 @@ import { action } from '@storybook/addon-actions';
 import { linkTo } from '@storybook/addon-links';
 
 // Mocks/Utils
-import { StorybookRouter } from '../../mocks/next/router'
+// import { StorybookRouter } from '../../mocks/next/router'
 
 // Component(s)
 import {{name}}Context from './{{name}}Context';
-
-// Styles
-const styles = {
-  marginTop: '10%',
-  textAlign: 'center',
-};
 
 // Generate some stub properties
 // generateProps.init()
@@ -26,7 +20,7 @@ const styles = {
 
 // Decorators
 const CenterDecorator = storyFn => (
-  <div style={styles}>
+  <div className="flex h-screen justify-center items-center">
     { storyFn() }
   </div>
 );
@@ -34,6 +28,7 @@ const CenterDecorator = storyFn => (
 // const RouterDecorator = (storyFn) => (
 //   <StorybookRouter>{storyFn()}</StorybookRouter>
 // )
+
 storiesOf('{{name}}', module)
   // .addDecorator(RouterDecorator)
   .addDecorator(CenterDecorator)

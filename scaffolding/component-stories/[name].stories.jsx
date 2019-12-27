@@ -8,16 +8,10 @@ import { storiesOf } from '@storybook/react';
 // import { linkTo } from '@storybook/addon-links';
 
 // Mocks/Utils
-import { StorybookRouter } from '../../mocks/next/router'
+// import { StorybookRouter } from '../../mocks/next/router'
 
 // Component(s)
 import {{name}} from './{{name}}';
-
-// Styles
-const styles = {
-  marginTop: '10%',
-  textAlign: 'center',
-};
 
 // Generate some stub properties
 // generateProps.init()
@@ -25,17 +19,17 @@ const styles = {
 
 // Decorators
 const CenterDecorator = storyFn => (
-  <div style={styles}>
+  <div className="flex h-screen justify-center items-center">
     { storyFn() }
   </div>
 );
 
-const RouterDecorator = (storyFn) => (
-  <StorybookRouter>{storyFn()}</StorybookRouter>
-)
+// const RouterDecorator = (storyFn) => (
+//   <StorybookRouter>{storyFn()}</StorybookRouter>
+// )
 
 storiesOf('{{name}}', module)
-  .addDecorator(RouterDecorator)
+  // .addDecorator(RouterDecorator)
   .addDecorator(CenterDecorator)
   .add('with required props', () => (
     <{{name}} {...props} />
