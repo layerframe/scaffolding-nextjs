@@ -9,7 +9,7 @@ const scaffoldApp = require('./scaffolding/scaffold-app');
 const constants = require('./constants');
 
 const PACKAGE_PATH = constants.getPackagePath()
-const SOURCE_DIR = constants.dirs().src
+const SOURCE_DIR = constants.dirs().src || PACKAGE_PATH
 
 module.exports = function () {
   // const argv = minimist(process.argv.slice(2));
