@@ -11,7 +11,7 @@ import CommonLayout from '../components/Layouts/CommonLayout'
 const {{pageName}} = ({ pageTitle, headerTitle }) => (
   <CommonLayout pageTitle={pageTitle} className={`{{name}}`}>
     <div className="container">
-      <div className="page-content__main text-editor mx-auto">
+      <div className="page_content__main text-editor mx-auto">
         <p>{headerTitle}</p>
       </div>
     </div>

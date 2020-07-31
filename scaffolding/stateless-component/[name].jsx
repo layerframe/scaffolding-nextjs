@@ -4,6 +4,8 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 
+import styles from './{{name}}.module.css'
+
 const {{name}} = (props) => {
   const {
     tagName: Tag,
@@ -13,13 +15,8 @@ const {{name}} = (props) => {
   } = props
 
   return (
-    <Tag className={`{{className}} {{className}}--${variant} ${className}`}>
+    <Tag className={`${styles.{{className}}} ${styles.`{{className}}__${variant}`} ${className}`}>
       {children}
-      <style jsx>{`
-        .{{className}} {
-
-        }
-      `}</style>
     </Tag>
   )
 }

@@ -34,6 +34,6 @@ const createClassName = name => {
   console.log(cleanName)
   // transforms PascalCase into slug-case for the CSS class name
   return cleanName
-    .replace(/[A-Z]/g, word => '-' + word.toLowerCase())
+    .replace(/[A-Z]/g, word => '_' + word.toLowerCase())
     .substring(1); // trim off leading - from the first capital
 }

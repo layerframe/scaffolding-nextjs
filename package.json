@@ -6,6 +6,8 @@
   "scripts": {
     "build": "node_modules/.bin/babel ./src/index.js -o ./lib/index.js",
     "publish": "npm publish --access public",
+    "version": "auto-changelog -p && git add CHANGELOG.md",
+    "release": "f(){ release-it $1 && github-release-from-changelog ;};f",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "directories": {
@@ -14,6 +16,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/layerframe/scaffolding-nextjs.git"
+  },
+  "auto-changelog": {
+    "output": "CHANGELOG.md",
+    "template": "keepachangelog",
+    "unreleased": true,
+    "commitLimit": false
   },
   "keywords": [
     "scaffolds",
@@ -44,5 +52,10 @@
     "packpath": "^0.1.0",
     "path": "^0.12.7",
     "pkgpath": "^0.1.1"
+  },
+  "devDependencies": {
+    "auto-changelog": "^2.2.0",
+    "github-release-from-changelog": "^2.1.1",
+    "release-it": "^13.6.6"
   }
 }
