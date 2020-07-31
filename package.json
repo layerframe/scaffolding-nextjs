@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "build": "node_modules/.bin/babel ./src/index.js -o ./lib/index.js",
-    "publish": "npm publish --access public",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "release": "f(){ release-it $1 && github-release-from-changelog ;};f",
     "test": "echo \"Error: no test specified\" && exit 1"
