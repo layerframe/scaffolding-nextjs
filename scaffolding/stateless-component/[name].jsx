@@ -15,7 +15,7 @@ const {{name}} = (props) => {
   } = props
 
   return (
-    <Tag className={`${styles.{{className}}} ${styles.`{{className}}__${variant}`} ${className}`}>
+    <Tag className={`${styles.{{className}}} ${styles[`{{className}}__${variant}`]} ${className}`}>
       {children}
     </Tag>
   )
