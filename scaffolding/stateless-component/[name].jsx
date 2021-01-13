@@ -8,10 +8,10 @@ import styles from './{{name}}.module.css'
 
 const {{name}} = (props) => {
   const {
-    tagName: Tag,
-    className,
-    variant,
-    children,
+    tagName: Tag = 'div',
+    className = '',
+    variant = 'default',
+    children = '',
   } = props
 
   return (
@@ -26,13 +26,6 @@ const {{name}} = (props) => {
   className: PropTypes.string,
   variant: PropTypes.oneOf(['default']),
   children: PropTypes.node,
-}
-
-{{name}}.defaultProps = {
-  tagName: 'div',
-  className: '',
-  variant: 'default',
-  children: '',
 }
 
 export default {{name}}

@@ -10,7 +10,7 @@ const {{name}}Context = createContext([{}, () => {}]);
 // Create the provider
 const {{name}}Provider = (props) => {
   const {
-    children,
+    children = '',
   } = props
 
   const [someState, setSomeState] = useState({});
@@ -24,10 +24,6 @@ const {{name}}Provider = (props) => {
 
 {{name}}Provider.propTypes = {
   children: PropTypes.node,
-}
-
-{{name}}Provider.defaultProps = {
-  children: '',
 }
 
 export { {{name}}Context, {{name}}Provider }
