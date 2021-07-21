@@ -1,37 +1,20 @@
 /**
  * {{name}}.jsx
  */
-import React from 'react';
-// import generateProps from 'react-generate-props'
+ import * as React from 'react';
 
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
-import { linkTo } from '@storybook/addon-links';
+ // Component(s)
+ import {{name}} from './{{name}}';
 
-// Mocks/Utils
-// import { StorybookRouter } from '../../mocks/next/router'
+ export default {
+   title: '{{name}}',
+   component: {{name}},
+   // Sets the layout parameter component wide.
+   parameters: {
+     layout: 'centered',
+   },
+ };
 
-// Component(s)
-import {{name}} from './{{name}}';
+ export const Default = () => <{{name}} />;
 
-// Generate some stub properties
-// generateProps.init()
-// const props = generateProps({{name}});
-
-// Decorators
-const CenterDecorator = storyFn => (
-  <div className="flex h-screen justify-center items-center">
-    { storyFn() }
-  </div>
-);
-
-// const RouterDecorator = (storyFn) => (
-//   <StorybookRouter>{storyFn()}</StorybookRouter>
-// )
-
-storiesOf('{{name}}', module)
-  // .addDecorator(RouterDecorator)
-  .addDecorator(CenterDecorator)
-  .add('with required props', () => (
-    <{{name}} />
-  ));
+ Default.storyName = 'default';

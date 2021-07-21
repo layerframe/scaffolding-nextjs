@@ -1,41 +1,19 @@
 /**
  * @file {{name}}.test.jsx
- * @url https://devhints.io/enzyme
- * @url https://github.com/airbnb/enzyme/blob/master/docs/guides/jest.md
+ *
+ * Jest expect documentation
+ * @url https://jestjs.io/docs/expect
+ *
+ * React Testing Library documentation
+ * @url https://testing-library.com/docs/
  */
 import * as React from 'react'
-import { shallow, mount, render } from 'enzyme'
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+
+// Component to test
 import {{name}} from './{{name}}.jsx'
 
-describe('components', () => {
-  describe('{{name}}', () => {
-    it('should mount with props', function () {
-      const wrap = mount(<{{name}}>Hello World</{{name}}>)
-
-      const expectedProps = {
-        children: 'Hello World',
-        tagName: 'div',
-        className: '',
-        variant: 'default'
-      }
-
-      expect(wrap.props()).toEqual(expectedProps)
-    })
-
-    it('should render as type and with content', function () {
-      const wrap = render(<{{name}}>Hello World</{{name}}>)
-
-      expect(wrap[0].type).toEqual('tag')
-      expect(wrap[0].name).toEqual('div')
-      // contain styles
-      expect(wrap[0].attribs.class).toContain('{{className}}')
-
-      // contain text
-      expect(wrap[0].children[0].type).toBe('text')
-      expect(wrap[0].children[0].data).toBe('Hello World')
-
-      // check for jsx styles
-      expect(wrap[0].children[1].type).toBe('style')
-    })
-  })
+test('is truthy', function () {
+  expect(true).toBeTruthy();
 })
