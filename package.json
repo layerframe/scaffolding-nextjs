@@ -1,10 +1,10 @@
 {
   "name": "scaffolding-nextjs",
-  "version": "1.1.6",
+  "version": "1.1.8",
   "description": "Templates that aid in the development of NextJS applications.",
   "main": "index.js",
   "scripts": {
-    "build": "node_modules/.bin/babel ./src/index.js -o ./lib/index.js",
+    "build": "babel ./foldit.js -o ./lib/index.js",
     "version": "auto-changelog -p && git add CHANGELOG.md",
     "release": "f(){ release-it $1 && github-release-from-changelog ;};f",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -30,7 +30,7 @@
   "author": "Rob Sawyer (rob@layerframe.com)",
   "license": "MIT",
   "bin": {
-    "foldit": "./foldit.js"
+    "foldit": "foldit.js"
   },
   "bugs": {
     "url": "https://github.com/layerframe/scaffolding-nextjs/issues"
@@ -54,7 +54,9 @@
   },
   "devDependencies": {
     "auto-changelog": "^2.2.0",
+    "eslint": "^7.17.0",
     "github-release-from-changelog": "^2.1.1",
+    "prettier": "^2.2.1",
     "release-it": "^13.6.6"
   }
 }

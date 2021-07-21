@@ -8,7 +8,7 @@ import fetch from 'isomorphic-unfetch'
 // Local components
 import CommonLayout from '../components/Layouts/CommonLayout'
 
-const {{pageName}} = ({ pageTitle, headerTitle }) => (
+const {{pageName}} = ({ pageTitle = 'Page Title', headerTitle = 'Header Title' }) => (
   <CommonLayout pageTitle={pageTitle} className={`{{name}}`}>
     <div className="container">
       <div className="page_content__main text-editor mx-auto">
@@ -42,11 +42,6 @@ const {{pageName}} = ({ pageTitle, headerTitle }) => (
 {{pageName}}.propTypes = {
   headerTitle: PropTypes.string,
   pageTitle: PropTypes.string,
-};
-
-{{pageName}}.defaultProps = {
-  headerTitle: 'Header Title',
-  pageTitle: 'Page title',
 };
 
 export default {{pageName}}
